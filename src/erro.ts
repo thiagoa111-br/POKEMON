@@ -1,12 +1,6 @@
-import { buscarPokemon } from "./buscarPokemon";
+import { buscarPokemon } from "./services/buscarPokemon";
 
-export async function testarErro() {
-  try {
-    const pokemon = await buscarPokemon("pokemonquenaoexiste");
-
-    console.log(pokemon);
-
-  } catch (erro) {
-    console.log("❌ Pokémon não encontrado.");
-  }
+export async function testarErro(): Promise<void> {
+  // A busca já trata a falha e retorna null.
+  await buscarPokemon("pokemonquenaoexiste");
 }
